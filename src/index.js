@@ -11,9 +11,20 @@ import { HashRouter as Router } from 'react-router-dom';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 
+//Reducer to store feedback state
+const feedback = (state = {feeling: 0, understanding: 0, support: 0, comments: ''}, action) => {
+    console.log('Action is', action);
+    console.log('State is', state);
+    if (action.type === 'ADD_FEEDBACK') {
+        return {...state, ...action.payload}
+    }
+    return state;
+}
+
+
 const storeInstance = createStore(
     combineReducers({
-        
+        feedback
     }),
     applyMiddleware(logger) //Add our middleware logger
 );

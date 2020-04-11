@@ -1,39 +1,34 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-import {connect} from 'react-redux';
+//Import router connecions
 import { HashRouter as Router, Route} from 'react-router-dom';
 import { withRouter } from 'react-router';
 import './App.css';
 
 //import components
-import Header from '../Header/Header'
+import Feeling from '../Feeling/Feeling';
+import Understanding from '../Understanding/Understanding';
+import Support from '../Support/Support';
+import Comments from '../Comments/Comments';
+import Review from '../Review/Review';
+import Submit from '../Submit/Submit';
+
 
 class App extends Component {
 
-  state = {
-    feeling: 0
-  }
-
   render() {
     return (
-      <div className="feedbackFeeling">
-        <Header />
-        <br/>
-        <h2>How are you feeling today?</h2>
-        <form>
-          <label>Please select below. 1 = "Terrible", 5 = "Great!"</label>
-          <select name="feeling">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-          </select>
-          <button type="submit">Next</button>
-        </form>
+      <div className="feedbackApp">
+        <Router>
+          <Route exact path='/' component={Feeling} />
+          <Route path='/understanding' component={Understanding} />
+          <Route path='/support' component={Support} />
+          <Route path='/comments' component={Comments} />
+          <Route path='/review' component={Review} />
+          <Route path='/submit' component={Submit} />
+        </Router>
       </div>
     );
   }
 }
 
-export default connect()(App);
+export default withRouter(App);

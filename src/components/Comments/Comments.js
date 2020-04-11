@@ -3,10 +3,6 @@ import Header from '../Header/Header';
 
 class Comments extends Component {
 
-    state = {
-        comments: ''
-    }
-
     render() {
         return(
             <div className="feedbackComment">

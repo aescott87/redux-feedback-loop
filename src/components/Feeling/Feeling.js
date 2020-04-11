@@ -3,7 +3,7 @@ import Header from '../Header/Header';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-class Understanding extends Component {
+class Feeling extends Component {
 
     handleChangeFor = (propertyName, event) => {
         this.setState({
@@ -15,21 +15,21 @@ class Understanding extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        console.log(`Adding understanding`, this.state.feedback.understanding);
+        console.log(`Adding feeling`, this.state.feedback.feeling);
         this.props.dispatch({ type: 'ADD_FEEDBACK', payload: this.state.feedback })
         //
-        this.props.history.push('/support');
+        this.props.history.push('/understanding');
     }
 
     render() {
         return (
-            <div className="feedbackUnderstanding">
+            <div className="feedbackFeeling">
                 <Header />
                 <br />
-                <h2>How well are you understanding the content?</h2>
-                <form onChange={(event) => this.handleChangeFor('understanding', event)}>
-                    <label>Please select below. 1 = "I'm lost", 5 = "I could teach this"</label>
-                    <select name="understanding">
+                <h2>How are you feeling today?</h2>
+                <form onChange={(event) => this.handleChangeFor('feeling', event)}>
+                    <label>Please select below. 1 = "Terrible", 5 = "Great!"</label>
+                    <select name="feeling">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -43,4 +43,4 @@ class Understanding extends Component {
     }
 }
 
-export default withRouter(connect()(Understanding));
+export default withRouter(connect()(Feeling));

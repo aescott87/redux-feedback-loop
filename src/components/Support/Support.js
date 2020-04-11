@@ -3,10 +3,6 @@ import Header from '../Header/Header';
 
 class Support extends Component {
 
-    state = {
-        support: 0
-    }
-    
     render() {
         return(
             <div className="feedbackSupport">
