@@ -5,6 +5,12 @@ import { connect } from 'react-redux';
 
 class Feeling extends Component {
 
+    state = {
+        feedback: {
+            feeling: 1
+        }
+    }
+
     handleChangeFor = (propertyName, event) => {
         this.setState({
             feedback: {

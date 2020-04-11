@@ -5,6 +5,12 @@ import { connect } from 'react-redux';
 
 class Understanding extends Component {
 
+    state = {
+        feedback: {
+            understanding: 1
+        }
+    }
+
     handleChangeFor = (propertyName, event) => {
         this.setState({
             feedback: {

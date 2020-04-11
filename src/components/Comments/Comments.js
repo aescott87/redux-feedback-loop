@@ -5,6 +5,10 @@ import { connect } from 'react-redux';
 
 class Comments extends Component {
 
+    state = {
+        
+    }
+
     handleChangeFor = (propertyName, event) => {
         this.setState({
             feedback: {

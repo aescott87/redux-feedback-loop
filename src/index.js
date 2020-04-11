@@ -16,6 +16,9 @@ const feedback = (state = {feeling: 0, understanding: 0, support: 0, comments: '
     if (action.type === 'ADD_FEEDBACK') {
         return {...state, ...action.payload}
     }
+    if(action.type === 'RESET_FEEDBACK') {
+        return {feeling: 0, understanding: 0, support: 0, comments: ''}
+    }
     return state;
 }
 

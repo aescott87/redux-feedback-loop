@@ -5,6 +5,12 @@ import { connect } from 'react-redux';
 
 class Support extends Component {
 
+    state = {
+        feedback: {
+            support: 1
+        }
+    }
+
     handleChangeFor = (propertyName, event) => {
         this.setState({
             feedback: {
