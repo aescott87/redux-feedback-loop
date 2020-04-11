@@ -9,10 +9,10 @@ class Review extends Component {
     handleClick = (event) => {
         event.preventDefault();
         let allFeedback = {
-          feelingRating: this.props.feedback.feeling,
-          understandingRating: this.props.feedback.understanding,
-          supportRating: this.props.feedback.support,
-          commentsAdded: this.props.feedback.comments,
+          feeling: this.props.feedback.feeling,
+          understanding: this.props.feedback.understanding,
+          support: this.props.feedback.support,
+          comments: this.props.feedback.comments,
         }
         console.log( 'Here is the full feedback', allFeedback );
         axios.post( './feedback', allFeedback )
