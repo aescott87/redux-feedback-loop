@@ -1,7 +1,25 @@
 import React, { Component } from 'react';
 import Header from '../Header/Header';
+import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 class Support extends Component {
+
+    handleChangeFor = (propertyName, event) => {
+        this.setState({
+            feedback: {
+                [propertyName]: event.target.value
+            }
+        })
+    }
+
+    handleSubmit = (event) => {
+        event.preventDefault();
+        console.log(`Adding support`, this.state.feedback.support);
+        this.props.dispatch({ type: 'ADD_FEEDBACK', payload: this.state.feedback })
+        //
+        this.props.history.push('/comments');
+    }
 
     render() {
         return(
@@ -9,8 +27,8 @@ class Support extends Component {
                 <Header />
                 <br />
                 <h2>How well are you being supported?</h2>
-                <form>
-                    <label>Please select below. 1 = "Terrible", 5 = "Great!"</label>
+                <form onChange={(event) => this.handleChangeFor('support', event)}>
+                    <label>Please select below. 1 = "Where is everyone?", 5 = "I feel supported!"</label>
                     <select name="support">
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -18,11 +36,11 @@ class Support extends Component {
                         <option value="4">4</option>
                         <option value="5">5</option>
                     </select>
-                    <button type="submit">Next</button>
+                    <button type="submit" onClick={this.handleSubmit}>Next</button>
                 </form>
             </div>
         )
     }
 }
 
-export default Support;
+export default withRouter(connect()(Support));
