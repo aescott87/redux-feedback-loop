@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 class Understanding extends Component {
-
+    //set state to 1 so that user can select 1 as a rating
     state = {
         feedback: {
             understanding: 1
@@ -18,12 +18,12 @@ class Understanding extends Component {
             }
         })
     }
-
+    //Click event that sets understanding state and sends info to reducer
     handleSubmit = (event) => {
         event.preventDefault();
         console.log(`Adding understanding`, this.state.feedback.understanding);
         this.props.dispatch({ type: 'ADD_FEEDBACK', payload: this.state.feedback })
-        //
+        //sends user to next part of survey
         this.props.history.push('/support');
     }
 

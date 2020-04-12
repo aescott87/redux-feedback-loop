@@ -4,13 +4,14 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 class Feeling extends Component {
-
+    //set state to 1 so that user can select 1 as a rating,
+    //otherwise the console will show an error
     state = {
         feedback: {
             feeling: 1
         }
     }
-
+    
     handleChangeFor = (propertyName, event) => {
         this.setState({
             feedback: {
@@ -18,12 +19,12 @@ class Feeling extends Component {
             }
         })
     }
-
+    //Click event that sets feeling state and sends info to reducer
     handleSubmit = (event) => {
         event.preventDefault();
         console.log(`Adding feeling`, this.state.feedback.feeling);
         this.props.dispatch({ type: 'ADD_FEEDBACK', payload: this.state.feedback })
-        //
+        //Sends user to next part of survey
         this.props.history.push('/understanding');
     }
 

@@ -8,6 +8,8 @@ class Review extends Component {
 
     handleClick = (event) => {
         event.preventDefault();
+        //Grouping all of the pieces of feedback into one object
+        //to send to the server
         let allFeedback = {
           feeling: this.props.feedback.feeling,
           understanding: this.props.feedback.understanding,
@@ -15,9 +17,11 @@ class Review extends Component {
           comments: this.props.feedback.comments,
         }
         console.log( 'Here is the full feedback', allFeedback );
+        //POST request to server
         axios.post( './feedback', allFeedback )
           .then( (result) => {
             console.log( 'Feedback successfully added!' );
+            //When successfully submitted, user can move to the submitted page
             this.props.history.push( '/submit' );
           })
           .catch( (error) => {
@@ -41,7 +45,7 @@ class Review extends Component {
         )
     }
 }
-
+//Allows us to get props from store
 const mapStateToProps = (reduxStore) => ({
     feedback: reduxStore.feedback
 })

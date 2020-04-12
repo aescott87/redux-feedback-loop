@@ -7,8 +7,9 @@ class Submit extends Component {
 
     handleSubmit = (event) => {
         console.log(this.props.store);
+        //Resets the state in redux so that user can input new data
         this.props.dispatch({ type: 'RESET_FEEDBACK' })
-        //
+        //Sends user back to start of survey
         this.props.history.push('/');
     }
 

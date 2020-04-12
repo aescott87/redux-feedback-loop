@@ -4,9 +4,12 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 class Comments extends Component {
-
+    //set state for comments to an empty string.
+    //This is in case the user does not want to enter comments
     state = {
-        
+        feedback: {
+            comments: ''
+        }
     }
 
     handleChangeFor = (propertyName, event) => {
@@ -16,12 +19,12 @@ class Comments extends Component {
             }
         })
     }
-
+    //Click event that sets comments state and sends info to reducer
     handleSubmit = (event) => {
         event.preventDefault();
         console.log(`Adding comments`, this.state.feedback.comments);
         this.props.dispatch({ type: 'ADD_FEEDBACK', payload: this.state.feedback })
-        //
+        //Sends user to the review page
         this.props.history.push('/review');
     }
 
