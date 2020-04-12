@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Header from '../Header/Header';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
+import '../App/App.css';
 
 class Understanding extends Component {
     //set state to 1 so that user can select 1 as a rating

@@ -17,3 +17,30 @@
   font-size: large;
 }
 
+.feedbackFeeling {
+  text-align: center;
+}
+
+.feedbackUnderstanding {
+  text-align: center;
+}
+
+.feedbackSupport {
+  text-align: center;
+}
+
+.feedbackComment {
+  text-align: center;
+}
+
+.feedbackReview {
+  text-align: center;
+}
+
+.feedbackSubmit {
+  text-align: center;
+}
+
+label {
+  display: block;
+}
