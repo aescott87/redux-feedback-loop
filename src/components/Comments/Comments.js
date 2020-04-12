@@ -28,6 +28,13 @@ class Comments extends Component {
         this.props.history.push('/review');
     }
 
+    handleClick = (event) => {
+        event.preventDefault();
+        console.log('Going back');
+        //sends user back to the previous page
+        this.props.history.push('/support');
+    }
+
     render() {
         return(
             <div className="feedbackComment">
@@ -38,6 +45,7 @@ class Comments extends Component {
                     <label>Comments</label>
                     <input type="text" onChange={(event) => this.handleChangeFor('comments', event)}/>
                     <button type="submit" onClick={this.handleSubmit}>Next</button>
+                    <button onClick={this.handleClick}>Back</button>
                 </form>
             </div>
         )

@@ -27,6 +27,13 @@ class Understanding extends Component {
         this.props.history.push('/support');
     }
 
+    handleClick = (event) => {
+        event.preventDefault();
+        console.log('Going back');
+        //sends user back to the previous page
+        this.props.history.push('/');
+    }
+
     render() {
         return (
             <div className="feedbackUnderstanding">
@@ -43,6 +50,7 @@ class Understanding extends Component {
                         <option value="5">5</option>
                     </select>
                     <button type="submit" onClick={this.handleSubmit}>Next</button>
+                    <button onClick={this.handleClick}>Back</button>
                 </form>
             </div>
         )

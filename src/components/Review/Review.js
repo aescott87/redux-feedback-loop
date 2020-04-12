@@ -6,7 +6,7 @@ import axios from 'axios';
 
 class Review extends Component {
 
-    handleClick = (event) => {
+    handleSubmit = (event) => {
         event.preventDefault();
         //Grouping all of the pieces of feedback into one object
         //to send to the server
@@ -30,6 +30,13 @@ class Review extends Component {
         })
     }
 
+    handleClick = (event) => {
+        event.preventDefault();
+        console.log('Going back');
+        //sends user back to the previous page
+        this.props.history.push('/comments');
+    }
+
     render() {
         return(
             <div className="feedbackReview">
@@ -40,7 +47,8 @@ class Review extends Component {
                 <h3>Understanding: {this.props.feedback.understanding}</h3>
                 <h3>Support: {this.props.feedback.support}</h3>
                 <h3>Comments: {this.props.feedback.comments}</h3>
-                <button onClick={(event) => this.handleClick(event)}>Submit</button>
+                <button onClick={(event) => this.handleSubmit(event)}>Submit</button>
+                <button onClick={this.handleClick}>Back</button>
             </div>
         )
     }
